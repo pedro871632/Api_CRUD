@@ -4,17 +4,19 @@ class Cadastro{
 
     async consultar(request,response){
         const {nome,preco,custo}=request.body;
-
+        console.log(nome)
         if(nome){
 
-            const dados = await knex("PRODUTOS").where({nome})
-            return response.json({
+            const dados = await knex("PRODUTOS").where({nome:nome})
+            console.log(dados)
+            return response.json(
                 dados
-            })
+            )
         }
 
         const dados = await knex("PRODUTOS").where({});
         
+
         return response.json(dados)
     }
 
