@@ -4,11 +4,11 @@ class Cadastro{
 
     async consultar(request,response){
         const {nome,preco,custo}=request.body;
-        console.log(nome)
+    
         if(nome){
 
             const dados = await knex("PRODUTOS").where({nome:nome})
-            console.log(dados)
+            
             return response.json(
                 dados
             )
@@ -23,7 +23,7 @@ class Cadastro{
 
     async inserir(request,response){
         const {nome,preco,custo} = request.body;
-        const quantidades = 1;
+        
         const resultado = await knex("PRODUTOS").where({
             nome
         });
@@ -36,7 +36,7 @@ class Cadastro{
         }
 
         const dados = await knex("PRODUTOS").insert({
-            nome,preco,custo,quantidade:quantidades
+            nome,preco,custo
         })
 
         response.json({
@@ -49,10 +49,10 @@ class Cadastro{
 
     async atualizar(request,response){
 
-        const {nome,preco,custo,qtd:quantidade} = request.body;
+        const {nome,preco,custo} = request.body;
 
 
-        await knex("PRODUTOS").where({nome}).update({preco,custo,quantidade});
+        await knex("PRODUTOS").where({nome}).update({preco,custo});
 
 
         return response.json({
