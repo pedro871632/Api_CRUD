@@ -12,7 +12,7 @@ class Cadastro{
             return response.json(
                 dados
             )
-        }
+        }   
 
         const dados = await knex("PRODUTOS").where({});
         
@@ -22,8 +22,8 @@ class Cadastro{
 
 
     async inserir(request,response){
-        const {nome,preco,custo,qtd:quantidade} = request.body;
-
+        const {nome,preco,custo} = request.body;
+        const quantidades = 1;
         const resultado = await knex("PRODUTOS").where({
             nome
         });
@@ -36,7 +36,7 @@ class Cadastro{
         }
 
         const dados = await knex("PRODUTOS").insert({
-            nome,preco,custo,quantidade
+            nome,preco,custo,quantidades
         })
 
         response.json({
