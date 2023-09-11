@@ -1,0 +1,17 @@
+{
+  "name": "lanchonete",
+  "version": "1.0.0",
+  "description": "Criando crud lanchonete",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Pedro",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "knex": "^2.5.1",
+    "sqlite3": "^5.1.6"
+  }
+}
