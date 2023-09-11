@@ -36,7 +36,7 @@ class Cadastro{
         }
 
         const dados = await knex("PRODUTOS").insert({
-            nome,preco,custo,quantidades
+            nome,preco,custo,qtd:quantidades
         })
 
         response.json({
